@@ -1,9 +1,10 @@
 .container{
     display: grid;
-    width: 90%;
+    max-width: 90%;
+    height: 100%;
+    padding-top: 20px;
     margin: 0 auto;
     grid-template-columns: 2fr 5fr 1fr;
-    grid-template-areas: "logo navigation side_button" "main_header main_header header_img";
     grid-template-rows: 1fr 10fr;
     justify-items: end;
     align-items: center;
@@ -12,12 +13,16 @@
 
 header{
     background: linear-gradient(102.1deg, #ED374D 0.91%, #FA793F 54.73%, #F7F651 107.44%);
-    max-width: 1440px;
     width: 100%;
+}
+
+.img_logo{
+    max-width: 100%;
 }
 
 .logo{
     grid-area: logo;
+    max-width: 100%;
 }
 
 nav{
@@ -31,6 +36,7 @@ nav a{
     margin-right: 10px;
 }
 
+
 nav a:hover{
     border-bottom: solid;
 }
@@ -39,13 +45,13 @@ nav a:hover{
     grid-area: side_button;
     background: #EFEAD8;
     border-radius: 52px;
-    width: 147px;
-    height: 48px;
+    width: 9rem;
+    height: 3rem;
 }
 
 .side_button p{
     color: #191B21;
-    font-size: 16px;
+    font-size: 1em;
     display: flex;
     justify-content: center;
 }
@@ -57,8 +63,8 @@ nav a:hover{
 .main_button{
     background: #22A75D;
     border-radius: 52px;
-    width: 147px;
-    height: 48px;
+    width: 9rem;
+    height: 3rem;
     display: flex;
     align-items:center;
     justify-content: center;
@@ -77,24 +83,71 @@ nav a:hover{
     align-self: center;
 }
 
-.main_header h4{
-    color: #2278D5;
-    font-size: 18px;
-}
-
-.main_header h2{
-    color: #191B21;
-    font-size: 48px;    
-}
-
 .main_header p{
     color: #191B21;
-    font-size: 16px;
+    font-size: 1em;
     line-height: 2;
 }
 
-.header_img{
-    grid-area: header_img;
-    object-fit: cover;
-    max-height: 100%;
+
+@media screen and (min-width: 1024px) {
+
+    nav a{
+        font-size: 1em;
+    }
+
+    .header_img{
+        grid-area: header_img;
+        max-width: 100%;
+    }
+
+    .main_img{
+        max-width: 17rem;    
+}
+    
+    .container{
+        grid-template-areas: 
+        "logo navigation side_button" 
+        "main_header main_header header_img";
+    }
+
+    .main_header h2{
+        color: #191B21;
+        font-size: 3em;    
+    }
+
+    .main_header h4{
+        color: #2278D5;
+        font-size: 2em;
+    }
+
+}
+
+@media screen and (max-width: 1023px) {
+    
+    nav a{
+        font-size: smaller;
+    }
+
+    .header_img{
+        display: none;
+    }
+
+    .container{
+        max-width: 80%;
+        grid-template-areas: 
+        "logo navigation navigation" 
+        "main_header main_header side_button";
+    }
+
+    .main_header h2{
+        color: #191B21;
+        font-size: 2em;    
+    }
+
+    .main_header h4{
+        color: #2278D5;
+        font-size: 1em;
+    }
+
 }
